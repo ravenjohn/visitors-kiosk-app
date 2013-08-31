@@ -20,7 +20,6 @@ class Users_model extends REST_Model
 			'affiliation',
 			'country',
 			'category',
-			'visit_count',
 			'date_created',
 			'date_updated'
 		);
@@ -34,7 +33,6 @@ class Users_model extends REST_Model
 			'affiliation',
 			'country',
 			'category',
-			'visit_count',
 			'date_created',
 			'date_updated'
 		);

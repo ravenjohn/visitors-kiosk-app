@@ -65,11 +65,6 @@ class Rest extends REST_Controller
 				$method_name	= substr($key, 0, strrpos($key, '_'));
 				$verb			= strtoupper(substr($key, strrpos($key, '_') + 1));
 				$method[$verb]	= self::getApiURL();
-				
-				if(isset($method['scope']))
-				{
-					$method['scope'] = implode(', ', $method['scope']);
-				}
 					
 				if($verb === 'GET' && $method_name === 'index')
 				{

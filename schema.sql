@@ -3,8 +3,8 @@ create database bigas2hack_db;
 use bigas2hack_db;
 
 CREATE TABLE users(
-	id varchar(32) primary key,
-	access_token varchar(40) NOT NULL,
+	id int(11) auto_increment primary key,
+	access_token varchar(40),
 	name varchar(32) not null,
 	password varchar(32),
 	type enum('visitor','admin','superadmin') default 'visitor' not null,
@@ -12,7 +12,6 @@ CREATE TABLE users(
 	country varchar(64),
 	category varchar(32),
 	contact varchar(128),
-	visit_count int(11) default 0 not null,
 	date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null,
 	date_updated TIMESTAMP null
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
