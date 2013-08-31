@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="/css/custom.css">
 	</head>
 	<body>
-		<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar navbar-inverse navbar-fixed-top" id="header">
 			<div class="container">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -23,10 +23,11 @@
 		</div>
 		<div class="container" id="main_content">
 		</div>
-		<script src="/js/jquery.min.js"></script>
-		<script src="/js/jquery.cookie.js"></script>
-		<script src="/js/bootstrap.min.js"></script>
-		<script src="/js/underscore.min.js"></script>
-		<script src="/js/scripts.js"></script>
+		<script type="text/javascript" src="/js/jquery.min.js"></script>
+		<script type="text/javascript" src="/js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/js/underscore.min.js"></script>
+		<script type="text/javascript" src="//www.google.com/jsapi"></script>
+		<script type="text/javascript" src="/js/scripts.js"></script>
 	</body>
 </html>

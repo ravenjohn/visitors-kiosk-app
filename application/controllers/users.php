@@ -6,7 +6,7 @@ class Users extends REST_Controller
 
     public $methods = array(
         'visitors_get'    => array(
-			'params'		=> '!access_token, ?start_date, ?end_date, ?filter, ?filter_key, ?search_key',
+			'params'		=> '!access_token, ?filter, ?filter_key, ?search_key',
             'description'   => 'Get paginated visitors.',
             'url_format'    => array('users/visitors'),
             'scope'         => ROLE_ADMIN
@@ -73,27 +73,24 @@ class Users extends REST_Controller
 			self::_check_in_array($filter, array('country', 'category'), 'filter');
 			$where[$filter] = $this->get('filter_key');
 		}
-		
-		if($this->get('start_date'))
-		{
-			self::_check_date($this->get('start_date'), 'start_date');
-			$where['date_created >='] = $this->get('start_date');
+
+		if($grouping === 'monthly'){
+			$data[] = array('Month', 'Number of Visitors');
+			for($i = date('m', now())-1; $i >= date('m', now()) - 12; $i--)
+			{
+				$where['date_created >='] = date('Y-m-d H:i:s', mktime(0, 0, 0, date('n') - $i, 1));
+				$where['date_created <'] = date('Y-m-d H:i:s', mktime(0, 0, 0, date('n') - $i+1, 1));
+				$timestamp = mktime(0, 0, 0, date('n') - $i, 1);
+				$data[] = array(date('M', $timestamp), $this->users_model->get_total_count(
+						$where,
+						$this->get('search_key'),
+						$this->get('fields'),
+						$this->get('page'),
+						$this->get('limit'),
+						$this->get('sort_field'),
+						$this->get('sort_order')));
+			}
 		}
-		
-		if($this->get('end_date'))
-		{
-			self::_check_date($this->get('end_date'), 'end_date');
-			$where['date_created <='] = $this->get('end_date');
-		}
-		
-		$data = $this->users_model->get_all(
-				$where,
-				$this->get('search_key'),
-				$this->get('fields'),
-				$this->get('page'),
-				$this->get('limit'),
-				$this->get('sort_field'),
-				$this->get('sort_order'));
 				
 		$this->response($data);
 	}

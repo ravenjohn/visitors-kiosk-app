@@ -1,17 +1,22 @@
 <script type="text/x-underscore-template" id="login-template">
 	<div class="row">
-		<div class="col-md-3 col-md-offset-5" id="login_div" method="POST" action="/users/login">
-			<form role="form">
-				<div class="form-group">
-					<label for="name" class="control-label">Name</label>
-					<input type="text" name="name" id="name" class="form-control" autofocus="true"/>
-				</div>
-				<div class="form-group">
-					<label for="password" class="control-label">Password</label>
-					<input type="password" name="password" id="password" class="form-control"/>
-				</div>
-				<button type="submit" class="btn btn-default">Login</button>
-			</form>
+		<div class="panel panel-default" id="login_div" method="POST" action="/users/login">
+			<div class="panel-heading">
+				<h4>Admin Panel</h4>
+			</div>
+			<div class="panel-body">
+				<form role="form">
+					<div class="form-group">
+						<label for="name" class="control-label">Name</label>
+						<input type="text" name="name" id="name" class="form-control" autofocus="true"/>
+					</div>
+					<div class="form-group">
+						<label for="password" class="control-label">Password</label>
+						<input type="password" name="password" id="password" class="form-control"/>
+					</div>
+					<button type="submit" class="btn btn-default">Login</button>
+				</form>
+			</div>
 		</div>
 	</div>
 </script>
@@ -23,4 +28,33 @@
 			<li><a href="#/logout" id="logout">Logout</a></li>
 		</ul>
 	</div>
+</script>
+
+<script type="text/x-underscore-template" id="chart-template">
+	<div id="request_div">
+		I want to see a 
+		<select id="grouping">
+			<option value="daily">Daily</option>
+			<option value="weekly">Weekly</option>
+			<option value="monthly" selected="selected">Monthly</option>
+			<option value="quarterly">Quarterly</option>
+			<option value="yearly">Yearly</option>
+		</select>
+		report of visitors
+		<div id="additional_params"></div>
+	</div>
+	<div id="chart_div" style="width: 900px; height: 500px;"></div>
+</script>
+
+
+<script type="text/x-underscore-template" id="menu-template">
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="collapse navbar-collapse navbar-ex1-collapse">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#/analytics" id="analytics">Analytics</a></li>
+				<li><a href="#/visitors" id="visitors">Visitors</a></li>
+				<li><a href="#/admins" id="admins">Admins</a></li>
+			</ul>
+		</div>
+	</nav>
 </script>

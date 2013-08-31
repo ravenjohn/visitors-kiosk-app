@@ -1,4 +1,16 @@
+body{
+	padding-top: 80px;
+}
 #login_div{
 	margin-top: 140px;
-	border: 1px solid #CCC;
+	width: 300px;
+}
+#request_div{
+	text-align: center;
+}
+#chart_div{
+	margin: 0 auto;
+}
+#additional_params{
+	display: inline;
 }
