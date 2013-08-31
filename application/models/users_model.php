@@ -74,4 +74,13 @@ class Users_model extends REST_Model
 		
 		return array('access_token' => $access_token);
 	}
+	
+	public function group_by_country($where = array())
+	{
+		$this->db->select('country, COUNT(*) as count')->from($this->table_name);
+		$this->db->where($where);
+		$this->db->group_by('country');
+		$query = $this->db->get();
+		return $query->result_array();
+	}
 }

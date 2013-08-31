@@ -35,9 +35,9 @@
 			$('#main_content').append(u.template($('#menu-template').html()));
 			$('#main_content').append(u.template($('#chart-template').html()));
 			bindLogout();
-			drawChart();
 			bindFirstFilter();
 			addSelectYear();
+			drawChart();
 		}
     };
 
@@ -75,11 +75,7 @@
 	
 	function drawChart() {
 		if(isLoggedIn()){
-			$.getJSON('/users/visitors/', {access_token : $.cookie('access_token')},
-				function(data){
-					reDrawChart(data);
-				}
-			);
+			reDrawChart();
 		}
 	}
 	
@@ -87,22 +83,30 @@
 		function innerDraw(d){
 			var data = google.visualization.arrayToDataTable(d),
 				options = {
-					hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
 					vAxis: {minValue: 0}
 				},
 				chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
 			chart.draw(data, options);
 		}
+		function innerDraw2(d){
+			console.log(d);
+			var data = google.visualization.arrayToDataTable(d),
+				chart = new google.visualization.GeoChart(document.getElementById('map_div'));
+			chart.draw(data, {});
+		}
 		if(typeof array === 'undefined'){
-			$.getJSON('/users/visitors/', {
-					grouping : $('#grouping').val(),
-					year : $('#year').val(),
-					month : $('#month').val(),
-					access_token : $.cookie('access_token')
-				},
-				function(data){
-					innerDraw(data);
-				}
+			var data = {
+				grouping : $('#grouping').val(),
+				year : $('#year').val(),
+				month : $('#month').val(),
+				category : $('#category').val(),
+				access_token : $.cookie('access_token')
+			};
+			$.getJSON('/users/visitors/', data,
+				function(data){innerDraw(data);}
+			);
+			$.getJSON('/users/visitors_by_country', data,
+				function(data){innerDraw2(data);}
 			);
 		}
 		else{
@@ -112,7 +116,7 @@
 	
 	function bindFirstFilter(){
 		$('#grouping').change(function(e){
-			if(this.value === 'daily' || this.value === 'weekly')
+			if(this.value === 'daily')
 			{
 				addSelectMonth();
 			}
@@ -124,6 +128,9 @@
 			{
 				$('#additional_params').html('.');
 			}
+			reDrawChart();
+		});
+		$('#category').change(function(e){
 			reDrawChart();
 		});
 	}
@@ -146,14 +153,16 @@
 			year = usrDate.getFullYear(),
 			gen = function(max){do{yourselect.add(new Option(year,year--),null);}while(--max>0);}(5);
 			
-		for(x=0; x<12; ++x) {
-			myselect.add(new Option(monthNames[usrDate.getMonth()], usrDate.getMonth()+1), null);
-			usrDate.setMonth(usrDate.getMonth()+1);
+		for(x=0; x<12; x++) {
+			var opt = new Option(monthNames[x], x+1);
+			if(x+1 == usrDate.getMonth() + 1)
+				opt.selected = "selected";
+			myselect.add(opt, null);
 		}
 		$('#month').change(function(e){reDrawChart();});
 		$('#year').change(function(e){reDrawChart();});
 	}
 
-	google.load("visualization", "1", {packages:["corechart"]});
+	google.load("visualization", "1", {packages:["corechart", "geochart"]});
 	google.setOnLoadCallback(R.loadTemplates);
 }());

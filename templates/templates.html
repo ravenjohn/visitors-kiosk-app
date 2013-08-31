@@ -35,15 +35,28 @@
 		I want to see a 
 		<select id="grouping">
 			<option value="daily">Daily</option>
-			<option value="weekly">Weekly</option>
 			<option value="monthly" selected="selected">Monthly</option>
 			<option value="quarterly">Quarterly</option>
 			<option value="yearly">Yearly</option>
 		</select>
-		report of visitors
+		report of
+		<select id="category">
+			<option value="all">All</option>
+			<option value="student">Student</option>
+			<option value="faculty">Faculty</option>
+			<option value="farmer">Farmer</option>
+			<option value="private_sector">Private Sector</option>
+			<option value="government_agency">Government Agency</option>
+			<option value="tourist">Tourist</option>
+		</select>
+		visitors
 		<div id="additional_params"></div>
 	</div>
-	<div id="chart_div" style="width: 900px; height: 500px;"></div>
+	<div id="chart_div" style="width: 100%; height: 500px;"></div>
+	<br />
+	<center>Distribution of graphed visitors in the world</center>
+	<br />
+	<div id="map_div" style="width: 100%; height: 500px;"></div>
 </script>
 
 
