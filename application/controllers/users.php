@@ -112,11 +112,23 @@ class Users extends REST_Controller
 		$data				= $this->_require_fields($required_fields, $this->_post_args);
 		
 		self::_check_strlen($data['password'], 6, 'password');
-		// $this->users_model->unique_name($data['name']);
-		
-		// $data['password']	= md5(PASSWORD_SALT . $data['password'] . PASSWORD_SALT);
 		$data				= $this->users_model->login($data);
 
+		$this->response($data);
+	}
+	
+	public function admins_post()
+	{
+		$required_fields	= array('name', 'password');
+		$data				= $this->_require_fields($required_fields, $this->_post_args);
+
+		self::_check_strlen($data['password'], 6, 'password');
+		$this->users_model->unique_name($data['name']);
+		
+		$data['type']		= ROLE_ADMIN;
+		$data['password']	= md5(PASSWORD_SALT . $data['password'] . PASSWORD_SALT);
+		$data				= $this->users_model->create($data, $this->_fields);
+		
 		$this->response($data);
 	}
 }
