@@ -1,8 +1,9 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-define('ROLE_ADMIN',	'Admin');
-define('ROLE_VISITOR',	'Visitor');
-define('PASSWORD_SALT',	'*1FECC20BBC9047AD3ACCDA1B3AB6BEE50511EDD3');
+define('PASSWORD_SALT',		'*1FECC20BBC9047AD3ACCDA1B3AB6BEE50511EDD3');
+define('ROLE_ADMIN',		'admin');
+define('ROLE_VISITOR',		'visitor');
+define('ROLE_SUPER_ADMIN',	'superadmin');
 
 /*
 |--------------------------------------------------------------------------
@@ -25,8 +26,7 @@ define('DEFAULT_QUERY_LIMIT', 20);
 */
 
 define('TABLE_LOGS',	'logs');
-define('TABLE_USERS',	'user');
-define('TABLE_ADMINS',	'admin');
+define('TABLE_USERS',	'users');
 
 /*
 |--------------------------------------------------------------------------
