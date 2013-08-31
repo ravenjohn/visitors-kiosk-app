@@ -137,7 +137,7 @@ class Rest extends REST_Controller
 	private static function getApiURL()
 	{
 		$url = self::getServerURL() . $_SERVER['REQUEST_URI'];
-		return preg_replace('/rest\/v[0-9]+\//', '', $url);
+		return preg_replace('/rest\//', '', $url);
 	}
 
 	/**

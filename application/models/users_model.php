@@ -29,7 +29,6 @@ class Users_model extends REST_Model
 			'access_token',
 			'name',
 			'password',
-			'type',
 			'affiliation',
 			'country',
 			'category',
@@ -43,4 +42,11 @@ class Users_model extends REST_Model
 		);
 	}
 
+	
+	public function get_user_by_access_token($access_token)
+	{
+		$query = $this->db->select()->from($this->table_name)->where(array('access_token' => $access_token))->get();
+		return ($query->num_rows() >= 1) ?  $query->row_array() : FALSE;
+	}
+	
 }

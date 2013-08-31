@@ -557,7 +557,7 @@ class REST_Controller extends CI_Controller
 	 *
 	 * @return boolean
 	 */
-	protected function _detect_access_token($scopes)
+	protected function _detect_access_token($scope)
 	{
 	
 		// get access token
@@ -591,7 +591,7 @@ class REST_Controller extends CI_Controller
 		}
 		else
 		{
-			if(in_array($user['user_type'], $scopes))
+			if($user['type'] === ROLE_SUPER_ADMIN || ($user['type'] === ROLE_ADMIN && $scope === ROLE_SUPER_ADMIN))
 			{
 				$this->user = $user;
 				$this->_log_request(TRUE);
