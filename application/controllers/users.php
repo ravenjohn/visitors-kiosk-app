@@ -91,4 +91,18 @@ class Users extends REST_Controller
 				
 		$this->response($data);
 	}
+
+	public function admins_get()
+	{
+		$data = $this->users_model->get_all(
+				array('type' => 'admin'),
+				$this->get('search_key'),
+				$this->get('fields'),
+				$this->get('page'),
+				$this->get('limit'),
+				$this->get('sort_field'),
+				$this->get('sort_order'));
+				
+		$this->response($data);
+	}
 }
