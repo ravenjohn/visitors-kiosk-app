@@ -17,8 +17,7 @@
 					</button>
 					<a class="navbar-brand" href="#/">Visitors Kiosk Analytics</a>
 				</div>
-				<div id="right_header_div">
-				</div>
+				<div id="right_header_div"></div>
 			</div>
 		</div>
 		<div class="container" id="main_content"></div>

@@ -78,7 +78,7 @@
 		$('#search').keyup(function(){
 			$.getJSON('/users/visitor_details',{fields : 'id,name,affiliation,country,category,contact,date_created', search_key : $(this).val()},
 				function (data){
-					location.hash = '#/visitors';
+					location.hash = '#/visitors/1';
 					$('#visitors_table').html('');
 					for(var i in data.records){
 						$('#visitors_table').append(u.template($('#visitor-row-template').html(), data['records'][i]));
@@ -91,15 +91,27 @@
 	
 	function paginate(total_count, b){
 		$('#pagination').html('');
-		
-		for(var i=0, j=1; i < parseInt(total_count, 10);i+=10, j++){
-			var _class = '';
-			if(j == location.hash.split('/')[2]){
-				_class = 'active';
+		if(total_count > 0)
+		{
+			var page = parseInt(location.hash.split('/')[2], 10),
+				j,
+				totalPage = Math.ceil(total_count/10);
+			if(isNaN(page)) page = 1;
+			if(page > 2) j = page - 2;
+			else j = 1;
+			if((page >=  totalPage - 1) && totalPage > 3) j -= 2;
+			else if((page >= totalPage - 2) && totalPage > 3) j--;
+			$('#pagination').append('<li><a href="#/visitors/1" class="page" data-page="1"><</a></li>');
+			for(var i=0; (j < page + 3 || j <= 5) && j <= totalPage;i+=10, j++){
+				var _class = '';
+				if(j == page){
+					_class = 'active';
+				}
+				$('#pagination').append('<li class="'+_class+'"><a href="#/visitors/'+j+'" class="page" data-page="'+j+'">'+j+'</a></li>');
 			}
-			$('#pagination').append('<li class="'+_class+'"><a href="#/visitors/'+j+'" class="page" data-page="'+j+'">'+j+'</a></li>');
+			$('#pagination').append('<li><a href="#/visitors/' + totalPage + ' " class="page" data-page="'+totalPage+'">></a></li>');
 		}
-		
+			
 		$('.page').click(function(e){
 			$.getJSON('/users/visitor_details',{fields : 'id,name,affiliation,country,category,contact,date_created', page : $(this).data('page'), search_key : $('#search').val()},
 				function (data){
