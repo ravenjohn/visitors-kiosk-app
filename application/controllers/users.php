@@ -131,4 +131,9 @@ class Users extends REST_Controller
 		
 		$this->response($data);
 	}
+	public function admins_delete($id = NULL)
+	{
+		$this->users_model->delete($id);
+		$this->response(array('message' => 'User successfully deleted.'));
+	}
 }
