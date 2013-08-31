@@ -105,4 +105,18 @@ class Users extends REST_Controller
 				
 		$this->response($data);
 	}
+	
+	public function login_post()
+	{
+		$required_fields	= array('name', 'password');
+		$data				= $this->_require_fields($required_fields, $this->_post_args);
+		
+		self::_check_strlen($data['password'], 6, 'password');
+		// $this->users_model->unique_name($data['name']);
+		
+		// $data['password']	= md5(PASSWORD_SALT . $data['password'] . PASSWORD_SALT);
+		$data				= $this->users_model->login($data);
+
+		$this->response($data);
+	}
 }

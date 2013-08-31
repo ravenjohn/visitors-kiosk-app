@@ -896,13 +896,14 @@ class REST_Controller extends CI_Controller
 	 * Check string length
 	 *
 	 * @param	string	$string		string
+	 * @param	string	$name		name
 	 * @param	int		$len		min length
 	 */
-	protected static function _check_strlen($string, $len = 6)
+	protected static function _check_strlen($string, $len = 6, $name)
 	{
 		if($string && strlen($string) < $len)
 		{
-			throw new Exception('Ooops! Your ' . str_replace('_',' ',$string) . ' is too short. It should be at least ' . $len);
+			throw new Exception('Ooops! Your ' . str_replace('_',' ',$name) . ' is too short. It should be at least ' . $len);
 		}
 	}
 	
