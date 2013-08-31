@@ -38,6 +38,12 @@ class Users extends REST_Controller
             'url_format'    => array('users/admins/:id'),
             'description'    => 'Delete an admin.',
             'scope'         => ROLE_SUPER_ADMIN
+        ),
+        'logout_get'    => array(
+            'params'        => '!access_token',
+            'url_format'    => array('users/logout'),
+            'description'    => 'Logout.',
+            'scope'         => ROLE_ADMIN
         )
     );
 
@@ -131,9 +137,15 @@ class Users extends REST_Controller
 		
 		$this->response($data);
 	}
+	
 	public function admins_delete($id = NULL)
 	{
 		$this->users_model->delete($id);
 		$this->response(array('message' => 'User successfully deleted.'));
+	}
+	
+	public function logout_get(){
+		$this->users_model->update($this->user['id'], array('access_token' => NULL));
+		$this->response(array('message' => 'Logout successful'));
 	}
 }

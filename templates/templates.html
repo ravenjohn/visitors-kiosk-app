@@ -1,0 +1,26 @@
+<script type="text/x-underscore-template" id="login-template">
+	<div class="row">
+		<div class="col-md-3 col-md-offset-5" id="login_div" method="POST" action="/users/login">
+			<form role="form">
+				<div class="form-group">
+					<label for="name" class="control-label">Name</label>
+					<input type="text" name="name" id="name" class="form-control" autofocus="true"/>
+				</div>
+				<div class="form-group">
+					<label for="password" class="control-label">Password</label>
+					<input type="password" name="password" id="password" class="form-control"/>
+				</div>
+				<button type="submit" class="btn btn-default">Login</button>
+			</form>
+		</div>
+	</div>
+</script>
+
+				
+<script type="text/x-underscore-template" id="logout-template">
+	<div class="collapse navbar-collapse">
+		<ul class="nav navbar-nav navbar-right">
+			<li><a href="#/logout" id="logout">Logout</a></li>
+		</ul>
+	</div>
+</script>
