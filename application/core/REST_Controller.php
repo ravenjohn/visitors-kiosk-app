@@ -657,11 +657,11 @@ class REST_Controller extends CI_Controller
 		$this->load->model('logs_model');
 		
 		return $this->logs_model->create(array(
-					'user_id' => isset($this->user['id']) ? $this->user['id'] : '',
 					'uri' => $this->uri->uri_string(),
 					'method' => $this->request->method,
 					'params' => $this->_args ? json_encode($this->_args) : null,
 					'access_token' => isset($this->access_token) ? $this->access_token : '',
+					'user_id' => isset($this->user['id']) ? $this->user['id'] : '',
 					'ip_address' => $this->input->ip_address(),
 					'authorized' => $authorized
 				));

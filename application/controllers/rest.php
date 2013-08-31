@@ -6,16 +6,10 @@ class Rest extends REST_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->helper('common');
 	}
 
 	public function index_get($id = NULL)
-	{
-		/* if(ENVIRONMENT !== 'development')
-		{
-			throw new Exception('API list is available for development environment only.');
-		} */
-		
+	{	
 		$this->load->config('rest');
 	
 		$data	= array();

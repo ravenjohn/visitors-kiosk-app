@@ -1,3 +1,7 @@
+drop database bigas2hack_db;
+create database bigas2hack_db;
+use bigas2hack_db;
+
 CREATE TABLE users(
 	id varchar(32) primary key,
 	access_token varchar(40) NOT NULL,
@@ -14,7 +18,7 @@ CREATE TABLE users(
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 CREATE TABLE logs(
-	id varchar(32) NOT NULL,
+	id int(11) auto_increment primary key,
 	uri varchar(255) NOT NULL,
 	method varchar(6) NOT NULL,
 	params text,
@@ -23,6 +27,5 @@ CREATE TABLE logs(
 	ip_address varchar(45) NOT NULL,
 	authorized tinyint(1) NOT NULL,
 	date_created int(11) NOT NULL,
-	date_updated int(11) NOT NULL,
-	PRIMARY KEY (id)
+	date_updated int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;

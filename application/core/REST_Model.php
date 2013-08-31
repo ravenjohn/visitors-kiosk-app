@@ -82,8 +82,8 @@ class REST_Model extends CI_Model
 		// for every data, initialize their time
 		foreach($data as $datum)
 		{
-			$datum['created'] 	= $this->_time;
-			$datum['updated'] 	= $this->_time;
+			$datum['date_created'] 	= $this->_time;
+			$datum['date_updated'] 	= $this->_time;
 			$insert_data[] = $datum;
 		}
 		
@@ -108,7 +108,7 @@ class REST_Model extends CI_Model
 		$this->_validate_data($data);
 		
 		// initialize dates
-		$data['created'] = $this->_time;
+		$data['date_created'] = $this->_time;
 		
 		// insert
 		$this->db->insert($table, $data);
@@ -124,11 +124,11 @@ class REST_Model extends CI_Model
 		}
 		// catch if ID in the DB is not int
 		else if ($id === 0){
-			$data = $this->get_all($data, FALSE, $fields, 1, 1, 'created', 'desc');
+			$data = $this->get_all($data, FALSE, $fields, 1, 1, 'date_created', 'desc');
 			return $data['records'][0];
 		}
 		
-		// get the created row and throwback
+		// get the date_created row and throwback
 		return $this->get_by_id($id, $fields);
 	}
 	
@@ -138,7 +138,7 @@ class REST_Model extends CI_Model
 	 * Updates a row in the database
 	 *
 	 * @param	int		$id		The ID of the row
-	 * @param	array	$data	An associative array containing the column-value to be updated
+	 * @param	array	$data	An associative array containing the column-value to be date_updated
 	 * @param	array	$fields	Fields to be selected on the return
 	 * @param	string	$table	In case, you don't want to use the model's default table
 	 */
@@ -146,7 +146,7 @@ class REST_Model extends CI_Model
 	{
 		$table OR $table = $this->table_name;
 
-		// check first if the data to be updated exists
+		// check first if the data to be date_updated exists
 		if (!$this->exists($id))
 		{
 			// if not existing, throw
@@ -158,11 +158,11 @@ class REST_Model extends CI_Model
 		
 		// unset unchangeable fields
 		unset($data['id']);
-		unset($data['created']);
-		unset($data['updated']);
+		unset($data['date_created']);
+		unset($data['date_updated']);
 		
 		// update the time
-		$data['updated'] = $this->_time;
+		$data['date_updated'] = $this->_time;
 		
 		// update the table
 		$this->db->where('id', $id)->update($table, $data);
@@ -174,7 +174,7 @@ class REST_Model extends CI_Model
 			throw new Exception('Update failed.', 424);
 		}
 		
-		// get the updated row and throwback
+		// get the date_updated row and throwback
 		return $this->get_by_id($id, $fields);
 	}
 	
