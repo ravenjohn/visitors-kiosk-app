@@ -29,7 +29,7 @@ package {
 		
 		public function Main() {
 			// constructor code
-			stage.displayState = StageDisplayState.FULL_SCREEN;
+			stage.displayState = StageDisplayState.FULL_SCREEN_INTERACTIVE;
 			stringHelper = new StringHelper();
 			errorBox = new ErrorBox();
 			validator = new Validator();
@@ -105,9 +105,11 @@ package {
 			if(currentFrame == 2){
 				visitorPage.form.countryInput.addEventListener(Event.CHANGE, onCountryChange);
 			}
+			/*
 			else if(currentFrame == 3){
 				addChild(errorBox);
 			}
+			*/
 		}
 		
 		private function sendData():void{
