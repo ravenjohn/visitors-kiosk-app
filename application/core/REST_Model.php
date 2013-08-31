@@ -519,7 +519,8 @@ class REST_Model extends CI_Model
 		
 			foreach($this->searchable_columns as $column)
 			{
-				$return[$column] = $like;
+				$like = trim($like);
+				$return['lower(' . $column . ')'] = strtolower($like);
 			}
 			
 			return $return;

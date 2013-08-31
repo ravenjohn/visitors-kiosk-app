@@ -3,7 +3,7 @@
 class Users_model extends REST_Model
 {
 
-	protected static $allowed_types = array('visitor','admin','superadmin');
+	protected static $allowed_types = array('visitor','admin');
 
 	function __construct()
 	{
@@ -20,6 +20,7 @@ class Users_model extends REST_Model
 			'affiliation',
 			'country',
 			'category',
+			'contact',
 			'date_created',
 			'date_updated'
 		);
@@ -28,16 +29,22 @@ class Users_model extends REST_Model
 			'id',
 			'access_token',
 			'name',
+			'type',
 			'affiliation',
 			'country',
 			'category',
+			'contact',
 			'date_created',
 			'date_updated'
 		);
 		
 		$this->searchable_columns = array(
 			'name',
-			'affiliation'
+			'affiliation',
+			'category',
+			'country',
+			'contact',
+			'date_created'
 		);
 	}
 
@@ -46,15 +53,6 @@ class Users_model extends REST_Model
 	{
 		$query = $this->db->select()->from($this->table_name)->where(array('access_token' => $access_token))->get();
 		return ($query->num_rows() >= 1) ?  $query->row_array() : FALSE;
-	}
-	
-	
-	public function unique_name($name)
-	{
-		if ($this->exists_by_fields(array('name' => $name, 'type !=' => ROLE_VISITOR)))
-		{
-			throw new Exception('Awwwwwww, sad. The name you\'ve chosen is not available.', 400);
-		}
 	}
 	
 	public function login($data)
@@ -72,7 +70,8 @@ class Users_model extends REST_Model
 
 		$this->update($data['id'], array('access_token' => $access_token));
 		
-		return array('access_token' => $access_token);
+		$data['access_token'] = $access_token;
+		return $data;
 	}
 	
 	public function group_by_country($where = array())

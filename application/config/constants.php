@@ -14,7 +14,7 @@ define('ROLE_SUPER_ADMIN',	'superadmin');
 |
 */
 
-define('DEFAULT_QUERY_LIMIT', 20);
+define('DEFAULT_QUERY_LIMIT', 10);
 
 /*
 |--------------------------------------------------------------------------

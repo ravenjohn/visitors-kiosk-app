@@ -17,12 +17,6 @@ class Users extends REST_Controller
             'url_format'    => array('users/visitors_by_country'),
             'scope'         => ROLE_ADMIN
         ),
-        'admins_get' => array(
-            'params'        => '!access_token',
-            'url_format'    => array('users/admins'),
-            'description'   => 'Get paginated admins.',
-            'scope'         => ROLE_SUPER_ADMIN
-        ),
         'visit_post'    => array(
             'params'        => '!name, !country, !category, ?affiliation, ?contact',
             'url_format'    => array('users/visit'),
@@ -32,18 +26,6 @@ class Users extends REST_Controller
             'params'        => '!name, !password',
             'url_format'    => array('users/login'),
             'description'    => 'Login.'
-        ),
-        'admins_post'=> array(
-            'params'        => '!access_token, !name, !password',
-            'url_format'    => array('users/admins'),
-            'description'    => 'Add an admin.',
-            'scope'         => ROLE_SUPER_ADMIN
-        ),
-        'admins_delete'=> array(
-            'params'        => '!access_token',
-            'url_format'    => array('users/admins/:id'),
-            'description'    => 'Delete an admin.',
-            'scope'         => ROLE_SUPER_ADMIN
         ),
         'logout_get'    => array(
             'params'        => '!access_token',
@@ -69,6 +51,18 @@ class Users extends REST_Controller
 		$this->response($data);
     }
 
+	public function visitor_details_get()
+	{
+		$data = $this->users_model->get_all(
+					array('type' => 'visitor'),
+					$this->get('search_key'),
+					$this->get('fields'),
+					$this->get('page'),
+					$this->get('limit'),
+					$this->get('sort_field'),
+					$this->get('sort_order'));
+		$this->response($data);
+	}
 	public function visitors_get()
 	{
 		$where = array('type' => 'visitor');
@@ -208,21 +202,6 @@ class Users extends REST_Controller
 		}
 		$this->response($ret);
 	}
-
-	public function admins_get()
-	{
-		$where = array('type' => 'visitor');
-		$data = $this->users_model->get_all(
-				array('type' => 'admin'),
-				$this->get('search_key'),
-				$this->get('fields'),
-				$this->get('page'),
-				$this->get('limit'),
-				$this->get('sort_field'),
-				$this->get('sort_order'));
-				
-		$this->response($data);
-	}
 	
 	public function login_post()
 	{
@@ -233,27 +212,6 @@ class Users extends REST_Controller
 		$data				= $this->users_model->login($data);
 
 		$this->response($data);
-	}
-	
-	public function admins_post()
-	{
-		$required_fields	= array('name', 'password');
-		$data				= $this->_require_fields($required_fields, $this->_post_args);
-
-		self::_check_strlen($data['password'], 6, 'password');
-		$this->users_model->unique_name($data['name']);
-		
-		$data['type']		= ROLE_ADMIN;
-		$data['password']	= md5(PASSWORD_SALT . $data['password'] . PASSWORD_SALT);
-		$data				= $this->users_model->create($data, $this->_fields);
-		
-		$this->response($data);
-	}
-	
-	public function admins_delete($id = NULL)
-	{
-		$this->users_model->delete($id);
-		$this->response(array('message' => 'User successfully deleted.'));
 	}
 	
 	public function logout_get(){

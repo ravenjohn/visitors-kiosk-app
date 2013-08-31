@@ -7,7 +7,7 @@ CREATE TABLE users(
 	access_token varchar(40),
 	name varchar(32) not null,
 	password varchar(32),
-	type enum('visitor','admin','superadmin') default 'visitor' not null,
+	type enum('visitor','admin') default 'visitor' not null,
 	affiliation varchar(128),
 	country varchar(64),
 	category varchar(32),

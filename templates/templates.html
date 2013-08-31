@@ -7,17 +7,18 @@
 			<div class="panel-body">
 				<form role="form">
 					<div class="form-group">
-						<label for="name" class="control-label">Name</label>
-						<input type="text" name="name" id="name" class="form-control" autofocus="true"/>
+						<label for="name" class="control-label">Username</label>
+						<input type="text" name="name" id="name" class="form-control" autofocus="true" required="required"/>
 					</div>
 					<div class="form-group">
 						<label for="password" class="control-label">Password</label>
-						<input type="password" name="password" id="password" class="form-control"/>
+						<input type="password" name="password" id="password" class="form-control" required="required"/>
 					</div>
 					<button type="submit" class="btn btn-default">Login</button>
 				</form>
 			</div>
 		</div>
+		<br /><br />
 	</div>
 </script>
 
@@ -61,13 +62,52 @@
 
 
 <script type="text/x-underscore-template" id="menu-template">
-	<nav class="navbar navbar-default" role="navigation">
+	<nav class="navbar navbar-default" role="navigation" id="menu">
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#/analytics" id="analytics">Analytics</a></li>
+				<li><a href="#/analytics" id="analytics">Analytics</a></li>
 				<li><a href="#/visitors" id="visitors">Visitors</a></li>
-				<li><a href="#/admins" id="admins">Admins</a></li>
 			</ul>
 		</div>
 	</nav>
+	<div id="content"></div>
+</script>
+
+<script type="text/x-underscore-template" id="visitor-template">
+	<form class="form-inline pull-right" role="form">
+		<div class="form-group">
+			<label class="sr-only" for="search">Search</label>
+			<input type="text" id="search" class="form-control"  placeholder="Search here..." autofocus="true"/>
+		</div>
+	</form>
+	<br />
+	<br />
+	<table class="table table-condensed table-bordered table-striped" id="table_places">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Affiliation</th>
+				<th>Country</th>
+				<th>Category</th>
+				<th>Contact</th>
+				<th>Visit date</th>
+			</tr>
+		</thead>
+		<tbody id="visitors_table">
+		</tbody>
+	</table>
+	<ul id="pagination" class="pagination"></ul>
+</script>
+
+<script type="text/x-underscore-template" id="visitor-row-template">
+	<tr>
+		<td><%= id %></td>
+		<td><%= name %></td>
+		<td><%= affiliation %></td>
+		<td><%= country %></td>
+		<td><%= category %></td>
+		<td><%= contact %></td>
+		<td><%= date_created %></td>
+	</tr>
 </script>

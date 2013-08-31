@@ -591,7 +591,7 @@ class REST_Controller extends CI_Controller
 		}
 		else
 		{
-			if($user['type'] === ROLE_SUPER_ADMIN || ($user['type'] === ROLE_ADMIN && $scope === ROLE_SUPER_ADMIN))
+			if($user['type'] === ROLE_ADMIN)
 			{
 				$this->user = $user;
 				$this->_log_request(TRUE);

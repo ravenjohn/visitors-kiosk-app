@@ -15,14 +15,13 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#/home">Visitors Kiosk Analytics</a>
+					<a class="navbar-brand" href="#/">Visitors Kiosk Analytics</a>
 				</div>
 				<div id="right_header_div">
 				</div>
 			</div>
 		</div>
-		<div class="container" id="main_content">
-		</div>
+		<div class="container" id="main_content"></div>
 		<script type="text/javascript" src="/js/jquery.min.js"></script>
 		<script type="text/javascript" src="/js/jquery.cookie.js"></script>
 		<script type="text/javascript" src="/js/bootstrap.min.js"></script>
