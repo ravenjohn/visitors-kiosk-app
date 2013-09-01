@@ -21,6 +21,10 @@
 			</div>
 		</div>
 		<div class="container" id="main_content"></div>
+		<br /><br /><br />
+		<div class="container" id="footer" style="text-align: center;">
+			<small>Team LB Pips. 2013. #bigas2hack</small>
+		</div>
 		<script type="text/javascript" src="/js/jquery.min.js"></script>
 		<script type="text/javascript" src="/js/jquery.cookie.js"></script>
 		<script type="text/javascript" src="/js/bootstrap.min.js"></script>

@@ -25,6 +25,6 @@ CREATE TABLE logs(
 	user_id varchar(40) NOT NULL,
 	ip_address varchar(45) NOT NULL,
 	authorized tinyint(1) NOT NULL,
-	date_created int(11) NOT NULL,
-	date_updated int(11) NOT NULL
+	date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null,
+	date_updated TIMESTAMP null
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;

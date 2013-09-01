@@ -46,6 +46,10 @@ class Users extends REST_Controller
 		$data				= $this->_require_fields($required_fields, $this->_get_args);
 		$data['category']	= strtolower($data['category']);
 		$data['country']	= strtolower($data['country']);
+		if($this->get('affiliation'))
+		{
+			$data['affiliation'] = str_replace('Affiliation','',$data['affiliation']);
+		}
 		$data['type']		= ROLE_VISITOR;
 		$data				= $this->users_model->create($data);
 		$this->response($data);
