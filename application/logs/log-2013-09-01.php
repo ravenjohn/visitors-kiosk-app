@@ -1854,3 +1854,171 @@ ERROR - 2013-09-01 02:34:26 --> Severity: Notice  --> Undefined variable: groupi
 ERROR - 2013-09-01 02:34:26 --> Severity: Notice  --> Undefined variable: grouping C:\xampp2\htdocs\bigas2hack\application\controllers\users.php 186
 ERROR - 2013-09-01 02:34:26 --> Severity: Notice  --> Undefined variable: grouping C:\xampp2\htdocs\bigas2hack\application\controllers\users.php 186
 ERROR - 2013-09-01 02:34:26 --> Severity: Notice  --> Undefined variable: grouping C:\xampp2\htdocs\bigas2hack\application\controllers\users.php 191
+DEBUG - 2013-09-01 02:41:23 --> Config Class Initialized
+DEBUG - 2013-09-01 02:41:23 --> Hooks Class Initialized
+DEBUG - 2013-09-01 02:41:23 --> Utf8 Class Initialized
+DEBUG - 2013-09-01 02:41:23 --> UTF-8 Support Enabled
+DEBUG - 2013-09-01 02:41:23 --> URI Class Initialized
+DEBUG - 2013-09-01 02:41:23 --> Router Class Initialized
+DEBUG - 2013-09-01 02:41:23 --> Output Class Initialized
+DEBUG - 2013-09-01 02:41:23 --> Security Class Initialized
+DEBUG - 2013-09-01 02:41:23 --> Input Class Initialized
+DEBUG - 2013-09-01 02:41:23 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-09-01 02:41:23 --> Language Class Initialized
+DEBUG - 2013-09-01 02:41:23 --> Loader Class Initialized
+DEBUG - 2013-09-01 02:41:23 --> Database Driver Class Initialized
+DEBUG - 2013-09-01 02:41:23 --> Controller Class Initialized
+DEBUG - 2013-09-01 02:41:23 --> Config file loaded: application/config/rest.php
+DEBUG - 2013-09-01 02:41:23 --> Helper loaded: inflector_helper
+DEBUG - 2013-09-01 02:41:23 --> Model Class Initialized
+DEBUG - 2013-09-01 02:41:23 --> Helper loaded: date_helper
+DEBUG - 2013-09-01 02:41:23 --> Model Class Initialized
+DEBUG - 2013-09-01 02:41:23 --> Model Class Initialized
+DEBUG - 2013-09-01 02:45:59 --> Config Class Initialized
+DEBUG - 2013-09-01 02:45:59 --> Hooks Class Initialized
+DEBUG - 2013-09-01 02:45:59 --> Utf8 Class Initialized
+DEBUG - 2013-09-01 02:45:59 --> UTF-8 Support Enabled
+DEBUG - 2013-09-01 02:45:59 --> URI Class Initialized
+DEBUG - 2013-09-01 02:45:59 --> Router Class Initialized
+DEBUG - 2013-09-01 02:45:59 --> Output Class Initialized
+DEBUG - 2013-09-01 02:45:59 --> Security Class Initialized
+DEBUG - 2013-09-01 02:45:59 --> Input Class Initialized
+DEBUG - 2013-09-01 02:45:59 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-09-01 02:45:59 --> Language Class Initialized
+DEBUG - 2013-09-01 02:45:59 --> Loader Class Initialized
+DEBUG - 2013-09-01 02:45:59 --> Database Driver Class Initialized
+DEBUG - 2013-09-01 02:45:59 --> Controller Class Initialized
+DEBUG - 2013-09-01 02:45:59 --> Config file loaded: application/config/rest.php
+DEBUG - 2013-09-01 02:45:59 --> Helper loaded: inflector_helper
+DEBUG - 2013-09-01 02:45:59 --> Model Class Initialized
+DEBUG - 2013-09-01 02:45:59 --> Helper loaded: date_helper
+DEBUG - 2013-09-01 02:45:59 --> Model Class Initialized
+DEBUG - 2013-09-01 02:45:59 --> Model Class Initialized
+DEBUG - 2013-09-01 02:48:16 --> Config Class Initialized
+DEBUG - 2013-09-01 02:48:16 --> Hooks Class Initialized
+DEBUG - 2013-09-01 02:48:16 --> Utf8 Class Initialized
+DEBUG - 2013-09-01 02:48:16 --> UTF-8 Support Enabled
+DEBUG - 2013-09-01 02:48:16 --> URI Class Initialized
+DEBUG - 2013-09-01 02:48:17 --> Router Class Initialized
+DEBUG - 2013-09-01 02:48:17 --> Output Class Initialized
+DEBUG - 2013-09-01 02:48:17 --> Security Class Initialized
+DEBUG - 2013-09-01 02:48:17 --> Input Class Initialized
+DEBUG - 2013-09-01 02:48:17 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-09-01 02:48:17 --> Language Class Initialized
+DEBUG - 2013-09-01 02:48:17 --> Loader Class Initialized
+DEBUG - 2013-09-01 02:48:17 --> Database Driver Class Initialized
+DEBUG - 2013-09-01 02:48:17 --> Controller Class Initialized
+DEBUG - 2013-09-01 02:48:17 --> Config file loaded: application/config/rest.php
+DEBUG - 2013-09-01 02:48:17 --> Helper loaded: inflector_helper
+DEBUG - 2013-09-01 02:48:17 --> Model Class Initialized
+DEBUG - 2013-09-01 02:48:17 --> Helper loaded: date_helper
+DEBUG - 2013-09-01 02:48:17 --> Model Class Initialized
+DEBUG - 2013-09-01 02:48:17 --> Model Class Initialized
+DEBUG - 2013-09-01 02:49:02 --> Config Class Initialized
+DEBUG - 2013-09-01 02:49:02 --> Hooks Class Initialized
+DEBUG - 2013-09-01 02:49:02 --> Utf8 Class Initialized
+DEBUG - 2013-09-01 02:49:02 --> UTF-8 Support Enabled
+DEBUG - 2013-09-01 02:49:02 --> URI Class Initialized
+DEBUG - 2013-09-01 02:49:02 --> Router Class Initialized
+DEBUG - 2013-09-01 02:49:02 --> Output Class Initialized
+DEBUG - 2013-09-01 02:49:02 --> Security Class Initialized
+DEBUG - 2013-09-01 02:49:02 --> Input Class Initialized
+DEBUG - 2013-09-01 02:49:02 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-09-01 02:49:02 --> Language Class Initialized
+DEBUG - 2013-09-01 02:49:02 --> Loader Class Initialized
+DEBUG - 2013-09-01 02:49:02 --> Database Driver Class Initialized
+DEBUG - 2013-09-01 02:49:02 --> Controller Class Initialized
+DEBUG - 2013-09-01 02:49:02 --> Config file loaded: application/config/rest.php
+DEBUG - 2013-09-01 02:49:02 --> Helper loaded: inflector_helper
+DEBUG - 2013-09-01 02:49:02 --> Model Class Initialized
+DEBUG - 2013-09-01 02:49:02 --> Helper loaded: date_helper
+DEBUG - 2013-09-01 02:49:02 --> Model Class Initialized
+DEBUG - 2013-09-01 02:49:02 --> Model Class Initialized
+DEBUG - 2013-09-01 02:49:15 --> Config Class Initialized
+DEBUG - 2013-09-01 02:49:15 --> Hooks Class Initialized
+DEBUG - 2013-09-01 02:49:15 --> Utf8 Class Initialized
+DEBUG - 2013-09-01 02:49:15 --> UTF-8 Support Enabled
+DEBUG - 2013-09-01 02:49:15 --> URI Class Initialized
+DEBUG - 2013-09-01 02:49:15 --> Router Class Initialized
+DEBUG - 2013-09-01 02:49:15 --> Output Class Initialized
+DEBUG - 2013-09-01 02:49:15 --> Security Class Initialized
+DEBUG - 2013-09-01 02:49:15 --> Input Class Initialized
+DEBUG - 2013-09-01 02:49:15 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-09-01 02:49:15 --> Language Class Initialized
+DEBUG - 2013-09-01 02:49:15 --> Loader Class Initialized
+DEBUG - 2013-09-01 02:49:15 --> Database Driver Class Initialized
+DEBUG - 2013-09-01 02:49:15 --> Controller Class Initialized
+DEBUG - 2013-09-01 02:49:15 --> Config file loaded: application/config/rest.php
+DEBUG - 2013-09-01 02:49:15 --> Helper loaded: inflector_helper
+DEBUG - 2013-09-01 02:49:15 --> Model Class Initialized
+DEBUG - 2013-09-01 02:49:15 --> Helper loaded: date_helper
+DEBUG - 2013-09-01 02:49:15 --> Model Class Initialized
+DEBUG - 2013-09-01 02:49:15 --> Model Class Initialized
+DEBUG - 2013-09-01 02:53:56 --> Config Class Initialized
+DEBUG - 2013-09-01 02:53:56 --> Hooks Class Initialized
+DEBUG - 2013-09-01 02:53:56 --> Utf8 Class Initialized
+DEBUG - 2013-09-01 02:53:56 --> UTF-8 Support Enabled
+DEBUG - 2013-09-01 02:53:56 --> URI Class Initialized
+DEBUG - 2013-09-01 02:53:56 --> Router Class Initialized
+DEBUG - 2013-09-01 02:53:56 --> Output Class Initialized
+DEBUG - 2013-09-01 02:53:56 --> Security Class Initialized
+DEBUG - 2013-09-01 02:53:56 --> Input Class Initialized
+DEBUG - 2013-09-01 02:53:56 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-09-01 02:53:56 --> Language Class Initialized
+DEBUG - 2013-09-01 02:53:56 --> Loader Class Initialized
+DEBUG - 2013-09-01 02:53:56 --> Database Driver Class Initialized
+DEBUG - 2013-09-01 02:53:56 --> Controller Class Initialized
+DEBUG - 2013-09-01 02:53:56 --> Config file loaded: application/config/rest.php
+DEBUG - 2013-09-01 02:53:56 --> Helper loaded: inflector_helper
+DEBUG - 2013-09-01 02:53:56 --> Model Class Initialized
+DEBUG - 2013-09-01 02:53:56 --> Helper loaded: date_helper
+DEBUG - 2013-09-01 02:53:56 --> Model Class Initialized
+DEBUG - 2013-09-01 02:53:56 --> Model Class Initialized
+DEBUG - 2013-09-01 02:58:02 --> Config Class Initialized
+DEBUG - 2013-09-01 02:58:02 --> Hooks Class Initialized
+DEBUG - 2013-09-01 02:58:02 --> Utf8 Class Initialized
+DEBUG - 2013-09-01 02:58:02 --> UTF-8 Support Enabled
+DEBUG - 2013-09-01 02:58:02 --> URI Class Initialized
+DEBUG - 2013-09-01 02:58:02 --> Router Class Initialized
+DEBUG - 2013-09-01 02:58:02 --> Output Class Initialized
+DEBUG - 2013-09-01 02:58:02 --> Security Class Initialized
+DEBUG - 2013-09-01 02:58:02 --> Input Class Initialized
+DEBUG - 2013-09-01 02:58:02 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-09-01 02:58:02 --> Language Class Initialized
+DEBUG - 2013-09-01 02:58:02 --> Loader Class Initialized
+DEBUG - 2013-09-01 02:58:02 --> Database Driver Class Initialized
+DEBUG - 2013-09-01 02:58:02 --> Controller Class Initialized
+DEBUG - 2013-09-01 02:58:02 --> Config file loaded: application/config/rest.php
+DEBUG - 2013-09-01 02:58:02 --> Helper loaded: inflector_helper
+DEBUG - 2013-09-01 02:58:02 --> Model Class Initialized
+DEBUG - 2013-09-01 02:58:02 --> Helper loaded: date_helper
+DEBUG - 2013-09-01 02:58:02 --> Model Class Initialized
+DEBUG - 2013-09-01 02:58:02 --> Model Class Initialized
+DEBUG - 2013-09-01 02:58:02 --> XSS Filtering completed
+DEBUG - 2013-09-01 02:58:02 --> XSS Filtering completed
+DEBUG - 2013-09-01 02:58:02 --> XSS Filtering completed
+DEBUG - 2013-09-01 02:58:02 --> XSS Filtering completed
+DEBUG - 2013-09-01 02:58:02 --> XSS Filtering completed
+DEBUG - 2013-09-01 02:59:00 --> Config Class Initialized
+DEBUG - 2013-09-01 02:59:00 --> Hooks Class Initialized
+DEBUG - 2013-09-01 02:59:00 --> Utf8 Class Initialized
+DEBUG - 2013-09-01 02:59:00 --> UTF-8 Support Enabled
+DEBUG - 2013-09-01 02:59:00 --> URI Class Initialized
+DEBUG - 2013-09-01 02:59:00 --> Router Class Initialized
+DEBUG - 2013-09-01 02:59:00 --> No URI present. Default controller set.
+DEBUG - 2013-09-01 02:59:00 --> Output Class Initialized
+DEBUG - 2013-09-01 02:59:00 --> Security Class Initialized
+DEBUG - 2013-09-01 02:59:00 --> Input Class Initialized
+DEBUG - 2013-09-01 02:59:00 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-09-01 02:59:00 --> Language Class Initialized
+DEBUG - 2013-09-01 02:59:00 --> Loader Class Initialized
+DEBUG - 2013-09-01 02:59:00 --> Database Driver Class Initialized
+DEBUG - 2013-09-01 02:59:00 --> Controller Class Initialized
+DEBUG - 2013-09-01 02:59:00 --> Config file loaded: application/config/rest.php
+DEBUG - 2013-09-01 02:59:00 --> Helper loaded: inflector_helper
+DEBUG - 2013-09-01 02:59:00 --> Model Class Initialized
+DEBUG - 2013-09-01 02:59:00 --> Helper loaded: date_helper
+DEBUG - 2013-09-01 02:59:00 --> Model Class Initialized
+DEBUG - 2013-09-01 02:59:00 --> File loaded: application/views/index.php
+DEBUG - 2013-09-01 02:59:00 --> Final output sent to browser
+DEBUG - 2013-09-01 02:59:00 --> Total execution time: 0.0330

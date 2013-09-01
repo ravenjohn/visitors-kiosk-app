@@ -17,7 +17,7 @@ class Users extends REST_Controller
             'url_format'    => array('users/visitors_by_country'),
             'scope'         => ROLE_ADMIN
         ),
-        'visit_post'    => array(
+        'visit_get'    => array(
             'params'        => '!name, !country, !category, ?affiliation, ?contact',
             'url_format'    => array('users/visit'),
             'description'    => 'Visit.'
@@ -40,10 +40,10 @@ class Users extends REST_Controller
         parent::__construct();
     }
 
-    public function visit_post()
+    public function visit_get()
     {
 		$required_fields	= array('name','country','category');
-		$data				= $this->_require_fields($required_fields, $this->_post_args);
+		$data				= $this->_require_fields($required_fields, $this->_get_args);
 		$data['category']	= strtolower($data['category']);
 		$data['country']	= strtolower($data['country']);
 		$data['type']		= ROLE_VISITOR;
