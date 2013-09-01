@@ -1,0 +1,31 @@
+body{
+	padding-top: 80px;
+}
+#login_div{
+	margin: 0 auto;
+	margin-top: 140px;
+	width: 300px;
+}
+#request_div{
+	text-align: center;
+}
+#chart_div{
+	margin: 0 auto;
+}
+#additional_params{
+	display: inline;
+}
+#menu .collapse{
+	border-radius: 0 !important;
+	background: #666;
+}
+#menu li{
+	background: none;
+}
+#menu li a{
+	color: #FFF;
+	font-weight: bold;
+}
+#menu li.active{
+	text-shadow: 1px 1px 5px #222;
+}
