@@ -130,12 +130,17 @@ package {
 			var urlLoader:URLLoader = new URLLoader();
 			
 			urlRequest.method = URLRequestMethod.GET;
+			urlLoader.addEventListener(Event.COMPLETE, onSent);
 			
 			try{
 				urlLoader.load(urlRequest);
 			}catch(e:Error){
 				trace(e);
 			}
+		}
+		
+		public function onSent(e:Event):void{
+			var urlLoader:URLLoader = URLLoader(e.target);
 		}
 		
 		public function validateInput():Boolean{
