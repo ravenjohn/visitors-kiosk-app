@@ -12,13 +12,17 @@ package {
 	import kiosk.extra.Validator;
 	import flash.net.URLRequest;
 	import flash.net.URLLoader;
+	import flash.net.URLRequestMethod;
 	import flash.display.Loader;
 	import flash.geom.Point;
+	import flash.net.URLVariables;
+	import flash.net.URLLoaderDataFormat;
 	
 	public class Main extends MovieClip {
 		var objectState:String;
 		var stringHelper:StringHelper;
 		var errorBox:ErrorBox;
+		var infoBox:InfoBox;
 		var validator:Validator;
 		var avatar:String;
 		var xmlRequest:URLRequest;
@@ -26,13 +30,16 @@ package {
 		var xmlFile:XML;
 		var imageRequest:URLRequest;
 		var flagImage:Loader;
+		var infoAdded:Boolean;
 		
 		public function Main() {
 			// constructor code
-			stage.displayState = StageDisplayState.FULL_SCREEN_INTERACTIVE;
+			//stage.displayState = StageDisplayState.FULL_SCREEN_INTERACTIVE;
 			stringHelper = new StringHelper();
 			errorBox = new ErrorBox();
+			infoBox = new InfoBox();
 			validator = new Validator();
+			infoAdded = false;
 			
 			this.addEventListener(MouseEvent.CLICK, onClick);
 			this.addEventListener(Event.ENTER_FRAME, onEverything);
@@ -43,6 +50,10 @@ package {
 			xmlRequest = new URLRequest(fileURL);
 			xmlLoader = new URLLoader(xmlRequest);
 			xmlLoader.addEventListener(Event.COMPLETE, onXMLLoaded);
+		}
+		
+		private function onXMLLoaded(e:Event):void{
+			xmlFile = new XML(e.target.data);
 		}
 		
 		private function loadFlag(fileURL:String):void{
@@ -60,10 +71,6 @@ package {
 			flagImage.y = visitorPage.avatar.flag.localToGlobal(new Point(visitorPage.avatar.flag.x, visitorPage.avatar.flag.y)).y+visitorPage.avatar.flag.height;
 			
 			addChild(flagImage);
-		}
-		
-		private function onXMLLoaded(e:Event):void{
-			xmlFile = new XML(e.target.data);
 		}
 		
 		public function onClick(e:MouseEvent):void{
@@ -84,6 +91,7 @@ package {
 			}
 			else if(e.target.name == "nextButton"){
 				irriPage.play();
+				infoAdded = false;
 			}
 			else if(e.target.name == "nameInput" || e.target.name == "affiliationInput" || e.target.name == "numberInput"){
 				//Make sure to remove only the default values..
@@ -91,7 +99,7 @@ package {
 					e.target.text = "";
 				}
 			}
-			else if(e.target.name == "errorOkButton"){
+			else if(e.target.name == "errorOkButton" || e.target.name == "infoOkButton"){
 				removeChild(e.target.parent);
 			}
 		}
@@ -105,18 +113,36 @@ package {
 			if(currentFrame == 2){
 				visitorPage.form.countryInput.addEventListener(Event.CHANGE, onCountryChange);
 			}
-			/*
-			else if(currentFrame == 3){
-				addChild(errorBox);
+			else if(currentFrame == 3 && infoAdded == false){
+				infoBox.textContent.text = ""
+				addChild(infoBox);
+				infoAdded = true;
 			}
-			*/
 		}
 		
 		private function sendData():void{
 			var visitorName = stringHelper.trim(visitorPage.form.nameInput.text);
-			trace("Send Data!!!");
+			
+			var url = "/users/visit";
+			url = url+"?name="+stringHelper.trim(visitorPage.form.nameInput.text)+"&affiliation="+stringHelper.trim(visitorPage.form.affiliationInput.text)+"&country="+visitorPage.form.countryInput.selectedItem.data+"&category="+visitorPage.form.categoryInput.selectedItem.data+"&contact="+stringHelper.trim(visitorPage.form.numberInput.text);
+			var urlRequest:URLRequest = new URLRequest(url);
+			var urlLoader:URLLoader = new URLLoader();
+			
+			urlRequest.method = URLRequestMethod.GET;
+			urlLoader.addEventListener(Event.COMPLETE, loaderCompleteHandler);
+			
+			try{
+				urlLoader.load(urlRequest);
+			}catch(e:Error){
+				trace(e);
+			}
 		}
 		
+		function loaderCompleteHandler(e:Event):void {
+			var requester:URLLoader = URLLoader(e.target);
+			trace( "responseVars: " + requester.data);
+		 
+		}
 		public function validateInput():Boolean{
 			var visitorName = stringHelper.trim(visitorPage.form.nameInput.text);
 			var affiliation = stringHelper.trim(visitorPage.form.affiliationInput.text);
