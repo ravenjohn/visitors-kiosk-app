@@ -12,6 +12,13 @@
 			*{
 				overflow: hidden;
 			}
+			#overlay{
+				width: 150px;
+				height: 100px;
+				position: absolute;
+				right: 50px;
+				bottom: 0;
+			}
 		</style>
 	</head>
 	<body>
@@ -20,5 +27,6 @@
 			<param name="SRC" value="/flash/Visitors_Kiosk.swf" />
 			<embed src="/flash/Visitors_Kiosk.swf" width="100%" height="100%"></embed>
 		</object>
+		<div id="overlay" onclick="document.location='/admin'"></div>
 	</body>
 </html>
