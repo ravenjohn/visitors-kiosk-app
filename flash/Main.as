@@ -17,6 +17,7 @@ package {
 	import flash.geom.Point;
 	import flash.net.URLVariables;
 	import flash.net.URLLoaderDataFormat;
+	import flash.net.navigateToURL;
 	
 	public class Main extends MovieClip {
 		var objectState:String;
@@ -91,7 +92,9 @@ package {
 			}
 			else if(e.target.name == "nextButton"){
 				irriPage.play();
-				infoAdded = false;
+			}
+			else if(e.target.name == "adminButton"){
+				
 			}
 			else if(e.target.name == "nameInput" || e.target.name == "affiliationInput" || e.target.name == "numberInput"){
 				//Make sure to remove only the default values..
@@ -99,8 +102,11 @@ package {
 					e.target.text = "";
 				}
 			}
-			else if(e.target.name == "errorOkButton" || e.target.name == "infoOkButton"){
+			else if(e.target.name == "errorOkButton"){
 				removeChild(e.target.parent);
+			}
+			else if(e.target.name == "infoOkButton"){
+				irriPage.infoBox.visible = false;
 			}
 		}
 		
@@ -113,11 +119,6 @@ package {
 			if(currentFrame == 2){
 				visitorPage.form.countryInput.addEventListener(Event.CHANGE, onCountryChange);
 			}
-			else if(currentFrame == 3 && infoAdded == false){
-				infoBox.textContent.text = ""
-				addChild(infoBox);
-				infoAdded = true;
-			}
 		}
 		
 		private function sendData():void{
@@ -129,7 +130,6 @@ package {
 			var urlLoader:URLLoader = new URLLoader();
 			
 			urlRequest.method = URLRequestMethod.GET;
-			urlLoader.addEventListener(Event.COMPLETE, loaderCompleteHandler);
 			
 			try{
 				urlLoader.load(urlRequest);
@@ -138,11 +138,6 @@ package {
 			}
 		}
 		
-		function loaderCompleteHandler(e:Event):void {
-			var requester:URLLoader = URLLoader(e.target);
-			trace( "responseVars: " + requester.data);
-		 
-		}
 		public function validateInput():Boolean{
 			var visitorName = stringHelper.trim(visitorPage.form.nameInput.text);
 			var affiliation = stringHelper.trim(visitorPage.form.affiliationInput.text);
